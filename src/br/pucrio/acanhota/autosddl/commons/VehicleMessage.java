@@ -2,12 +2,12 @@ package br.pucrio.acanhota.autosddl.commons;
 
 import java.io.Serializable;
 
-public class VehicleStatus implements Serializable {
+public class VehicleMessage implements Serializable {
 
 	private static final long serialVersionUID = 199L;
 	private int m_state;
 	
-	public VehicleStatus()
+	public VehicleMessage()
 	{
 		m_state = 0;
 	}
