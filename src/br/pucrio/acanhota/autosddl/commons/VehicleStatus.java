@@ -1,13 +1,13 @@
-package com.infopae.model;
+package br.pucrio.acanhota.autosddl.commons;
 
 import java.io.Serializable;
 
-public class PingObject implements Serializable {
+public class VehicleStatus implements Serializable {
 
 	private static final long serialVersionUID = 199L;
 	private int m_state;
 	
-	public PingObject()
+	public VehicleStatus()
 	{
 		m_state = 0;
 	}
