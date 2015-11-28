@@ -12,9 +12,5 @@ public enum VehicleMessageType {
 	VehicleMessageType (String description) {
 		this.description = description;
 	}
-
-	public String toString() {
-		return description;
-	}
 	
 }
