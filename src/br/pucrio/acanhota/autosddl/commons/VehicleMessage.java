@@ -6,18 +6,20 @@ public class VehicleMessage implements Serializable {
 
 	private static final long serialVersionUID = 199L;
 	private int m_state;
+	private VehicleMessageType type;
 	
-	public VehicleMessage()
+	public VehicleMessage(VehicleMessageType type)
 	{
+		this.type = type;
 		m_state = 0;
 	}
 	
 	public String toString()
 	{
 		if(m_state == 0)
-			return "Ping!";
+			return type + " Ping!";
 		else
-			return "Pong!";
+			return type + " Pong!";
 	}
 	
 	public void changeState()
