@@ -10,6 +10,7 @@ public class VehicleMessage implements Serializable {
 
 	private static final long serialVersionUID = 199L;
 	private int m_state;
+	private String licensePlate;
 	private Date createdAt;
 	private VehicleMessageType type;
 	private double lat;
@@ -19,9 +20,10 @@ public class VehicleMessage implements Serializable {
 	private int	rpm;
 	private boolean obd2Connected;
 	
-	public VehicleMessage(VehicleMessageType type, boolean obd2Connected)
+	public VehicleMessage(String licensePlate, VehicleMessageType type, boolean obd2Connected)
 	{
 		this.createdAt = now();
+		this.licensePlate = licensePlate;
 		this.type = type;
 		this.obd2Connected = obd2Connected;
 		m_state = 0;
@@ -31,6 +33,7 @@ public class VehicleMessage implements Serializable {
 	{
 		StringBuilder sb = new StringBuilder();
 		sb.append("[");
+		sb.append("licensePlate = '" + licensePlate + "'").append(", ");
 		sb.append("createdAt = '" + getCreatedAtAsStr() + "'").append(", ");
 		sb.append("type = " + type + "").append(", ");
 		sb.append("obd2Connected = " + obd2Connected + "").append(", ");
@@ -106,5 +109,9 @@ public class VehicleMessage implements Serializable {
 
 	public void setVehicleAcceleration(double vehicleAcceleration) {
 		this.vehicleAcceleration = vehicleAcceleration;
+	}
+	
+	public String getLicensePlate() {
+		return licensePlate;
 	}
 }
