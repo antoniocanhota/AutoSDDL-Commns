@@ -15,6 +15,7 @@ public class VehicleMessage implements Serializable {
 	private double lat;
 	private double lng;
 	private int	vehicleSpeed;
+	private double vehicleAcceleration;
 	private int	rpm;
 	private boolean obd2Connected;
 	
@@ -34,7 +35,8 @@ public class VehicleMessage implements Serializable {
 		sb.append("type = " + type + "").append(", ");
 		sb.append("obd2Connected = " + obd2Connected + "").append(", ");
 		sb.append("coordinates = " + getCoordinatesAsStr() + "").append(", ");
-		sb.append("vehicleSpeed (km/h) = " + vehicleSpeed + "").append(", ");
+		sb.append("vehicleSpeed = " + vehicleSpeed + "km/h").append(", ");
+		sb.append("vehicleAcceleration = " + vehicleAcceleration + "m/s²").append(", ");
 		sb.append("rpm = " + getRpm() + "").append(", ");
 		sb.append("m_state = '" + (m_state == 0 ? "Ping!" : "Pong!") + "'");
 		sb.append("]");
@@ -55,7 +57,7 @@ public class VehicleMessage implements Serializable {
 	
 	public String getCreatedAtAsStr() {
 		DateFormat df = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-		return df.format(createdAt);
+		return df.format(getCreatedAt());
 	}
 
 	public int getSpeed() {
@@ -92,5 +94,17 @@ public class VehicleMessage implements Serializable {
 	
 	public String getCoordinatesAsStr() {
 		return "("+lat + "," + lng+")";
+	}
+
+	public Date getCreatedAt() {
+		return createdAt;
+	}
+
+	public double getVehicleAcceleration() {
+		return vehicleAcceleration;
+	}
+
+	public void setVehicleAcceleration(double vehicleAcceleration) {
+		this.vehicleAcceleration = vehicleAcceleration;
 	}
 }
